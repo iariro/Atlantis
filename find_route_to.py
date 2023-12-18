@@ -24,10 +24,11 @@ with open('atlantis.md', 'w') as file:
                 file.write('	{}({}) -- {} --> {}({})\n'.format(warp['from'], warp['from'], warp['warp'], warp['to'], warp['to']))
             else:
                 file.write('	{}({}) --> {}({})\n'.format(warp['from'], warp['from'], warp['to'], warp['to']))
-    file.write('    97(97) --> FINAL(FINAL)\n')
-    file.write('    99(99) --> FINAL(FINAL)\n')
-    file.write('    subgraph 最短ルート\n')
-    for zone in major_route:
-        file.write('    {}\n'.format(zone))
-    file.write('    end\n')
+    if False:
+        file.write('    97(97) --> FINAL(FINAL)\n')
+        file.write('    99(99) --> FINAL(FINAL)\n')
+        file.write('    subgraph 最短ルート\n')
+        for zone in major_route:
+            file.write('    {}\n'.format(zone))
+        file.write('    end\n')
     file.write('```\n')
