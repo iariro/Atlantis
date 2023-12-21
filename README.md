@@ -5,7 +5,6 @@
 ## ファイル構成
 ```mermaid
 graph LR
-	subgraph python
 	scrape_and_dump[scrape_and_dump.py] -- 出力 --> json[atlantis.json]
 	find_deadend[find_deadend.py] -- 読み込み --> json
 	find_far_route[find_far_route.py] ---> find_route
@@ -13,8 +12,22 @@ graph LR
 	find_route[find_route.py] -- 読み込み --> json
 	find_route_all[find_route_all.py] ---> find_route
 	find_route_to[find_route_to.py] ---> find_route
-	end
 	scrape_and_dump -- 参照 --> net[ネット情報]
+	find_route_to -- 出力 --> md[atlantis.md]
+	find_route_all -- 出力 --> md[atlantis.md]
+
+	subgraph Python
+	scrape_and_dump
+	find_deadend
+	find_far_route
+	find_missing_zone
+	find_route
+	find_route_all
+	find_route_to
+	scrape_and_dump
+	find_route_to
+	find_route_all
+	end
 ```
 
 ## 使い方
